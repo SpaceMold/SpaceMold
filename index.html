@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTIO SpaceMold</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        header {
+            margin-top: 30px; 
+            text-align: center;
+            background: #0d1b2a;
+            color: white;
+            padding: 30px;
+        }
+
+        nav {
+            background: #1b263b;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .hamburger,
+        .mobile-menu {
+            margin-top: 35px;
+            margin-left: 5px;
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+        }
+
+        .banner {
+
+            background: url("hatter.jpg") center/cover;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+                font-size: 30px;
+                color: white; 
+                text-shadow: 
+                 -2px -2px 0 black,  
+                 2px -2px 0 black,  
+                 -2px  2px 0 black,  
+                 2px  2px 0 black;
+            font-weight: bold;
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .language-switcher img {
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .content {
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 20px 0;
+            border-bottom: 4px solid #0d1b2a;
+        }
+
+        .section {
+            box-shadow: 5px 5px 10px #1b263b;
+            margin-top: 20px;
+        }
+
+        .image-block {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .image-block img {
+            width: calc(100% - 40px);
+            height: auto;
+        }
+
+        .video {
+            width: calc(100% - 40px);
+            height: 400px;
+        }
+
+        .text-block {
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: left;
+            
+        }
+
+        .text-block h1 {
+            margin-top: 50px;
+        }
+        .text-block h2 {
+            margin-top: 0;
+        }
+
+        .text-block p {
+            text-align: justify;
+            text-indent: 0px;
+            font-size: 20px;
+        }
+
+        .text-block p:first-of-type {
+            font-style: italic;
+            font-size: 1em;
+            text-align: left;
+            text-indent: 0px;
+        }
+
+        .text-block p:first-of-type {
+            font-style: italic;
+            font-size: 1em;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                z-index: 1001;
+            }
+
+            .mobile-menu {
+                display: none;
+                position: fixed;
+                top: 40px;
+                left: 10px;
+                background: #0d1b2a;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .mobile-menu a {
+                display: block;
+                color: white;
+                margin: 5px 0;
+                text-decoration: none;
+            }
+
+            .section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .image-block {
+                width: 100%;
+            }
+
+            .image-block img {
+                width: calc(100% - 40px);
+            }
+
+            .text-block {
+                width: 100%;
+                padding: 10px;
+                text-align: left ;
+                justify-content: center;
+                text-indent: 0;
+
+            }
+        }
+
+        footer {
+            background: #1b263b;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("mobile-menu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+        function changeLanguage(lang) {
+            var elements = document.querySelectorAll("[data-lang]");
+            elements.forEach(element => {
+                element.innerHTML = element.getAttribute("data-" + lang);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <header id="teteje">
+        <h1 data-lang data-hu="SpaceMold" data-en="SpaceMold">SpaceMold</h1>
+    </header>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <nav>
+        <a href="#teteje" data-lang data-hu="Kezdőlap" data-en="Home">Kezdőlap</a>
+        <a href="#rolunk" data-lang data-hu="Rólunk" data-en="About us">Rólunk</a>
+        <a href="#Projekt" data-lang data-hu="Projekt" data-en="Project">Projekt</a>
+        <a href="#urallomas" data-lang data-hu="Projekthét" data-en="Project week">Projekthét</a>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="#teteje" data-lang data-hu="Kezdőlap" data-en="Home">Kezdőlap</a>
+        <a href="#rolunk" data-lang data-hu="Rólunk" data-en="About us">Rólunk</a>
+        <a href="#Projekt" data-lang data-hu="Projekt" data-en="Project">Projekt</a>
+        <a href="#urallomas" data-lang data-hu="Projekthét" data-en="Project week">Projekthét</a>
+    </div>
+    <div class="banner">
+        <div class="language-switcher">
+            <img src="hu_small.png" alt="HU" onclick="changeLanguage('hu')">
+            <img src="en_small.png" alt="EN" onclick="changeLanguage('en')">
+        </div>
+        <span data-lang data-hu="Space-Themed Models for Outstanding Learning and Discovery" data-en="Space-Themed Models for Outstanding Learning and Discovery">Space-Themed Models for Outstanding Learning and Discovery</span>
+    </div>
+    <div class="content">
+        <div id="rolunk" class="section">
+            <div class="image-block">
+                <img src="bmeQ.jpg" alt="Kép 1">
+                <img src="OTIO_rolunk1_hh.jpg" alt="Kép 1b">
+                
+            </div>
+            <div class="text-block">
+                <h1 data-lang data-hu="Rólunk" data-en="About us">Rólunk</h1>
+                <!-- <p data-lang data-hu="Rövid bevezető szöveg." data-en="Short introductory text."> Rövid bevezető szöveg. -->
+                </p>
+                
+                <p data-lang data-hu="Üdvözöljük a SpaceMold oldalán! Csapatunk tagjai: Bugyik Adél Petra és Szabó Dzsenifer Gina, a Kölcsey Ferenc Gimnázium végzős diákjai Zalaegerszegről, akiket szenvedélyesen érdekel a technológia és az űrkutatás." 
+                    data-en="Welcome to the SpaceMold page! Our team members are Adél Petra Bugyik and Dzsenifer Gina Szabó, senior students at Kölcsey Ferenc High School in Zalaegerszeg, who are passionately interested in technology and space exploration.">
+                    Üdvözöljük a SpaceMold oldalán! Csapatunk tagjai: Bugyik Adél Petra és Szabó Dzsenifer Gina, a Kölcsey Ferenc Gimnázium végzős diákjai Zalaegerszegről, akiket szenvedélyesen érdekel a technológia és az űrkutatás.
+</p>
+                <p data-lang data-hu="A 2024-es 3D Hídnyomtató verseny győzteseként megtapasztaltuk, milyen fantasztikus kihívás egy ötletet valósággá formálni. Emellett szakmai tudásunk különböző képzéseken is bővítettük a ZalaZone tesztpályán, a zalaegerszegi Pannon Egyetemen, illetve a közelmúltban drónkezelési ismeretekre is szert tettünk, amelyet hivatalos jogosítvánnyal is tudunk igazolni."
+                    data-en="As the winners of the 2024 3D Bridge Printing Competition, we experienced firsthand what an incredible challenge it is to turn an idea into reality. Additionally, we have expanded our professional knowledge through various training programs at the ZalaZone test track and the University of Pannonia in Zalaegerszeg. Recently, we have also acquired drone operation skills, which we can officially certify with a license.">
+                    A 2024-es 3D Hídnyomtató verseny győzteseként megtapasztaltuk, milyen fantasztikus kihívás egy ötletet valósággá formálni. Emellett szakmai tudásunk különböző képzéseken is bővítettük a ZalaZone tesztpályán, a zalaegerszegi Pannon Egyetemen, illetve a közelmúltban drónkezelési ismeretekre is szert tettünk, amelyet hivatalos jogosítvánnyal is tudunk igazolni.</p>
+
+                <p data-lang data-hu="Most, az Országos Tudományos és Innovációs Olimpián egy 3D nyomtatott, Arduino-vezérelt űrzsilipet fejlesztünk, amelyet élőben is bemutatunk. Ez a verseny nemcsak egy megmérettetés számunkra, hanem egy lehetőség is arra, hogy fejlődjünk, tanuljunk és új mérnöki megoldásokat fedezzünk fel."
+                    data-en="Now, at the National Science and Innovation Olympiad, we are developing a 3D-printed, Arduino-controlled airlock, which we will present live. This competition is not only a challenge for us but also an opportunity to grow, learn, and discover new engineering solutions.">
+                    Most, az Országos Tudományos és Innovációs Olimpián egy 3D nyomtatott, Arduino-vezérelt űrzsilipet fejlesztünk, amelyet élőben is bemutatunk. Ez a verseny nemcsak egy megmérettetés számunkra, hanem egy lehetőség is arra, hogy fejlődjünk, tanuljunk és új mérnöki megoldásokat fedezzünk fel.</p>
+                    
+                <p data-lang data-hu="Amennyiben érdeklődését felkeltettük, kérem görgessen lejjebb!"
+                    data-en="If we have piqued your interest, please scroll down!">
+                    Amennyiben érdeklődését felkeltettük, kérem görgessen lejjebb!</p>    
+            </div>
+        </div>
+        <div id="Projekt" class="section">
+            <div class="image-block">
+                <img src="projekt.png" alt="Kép 1">
+                <!-- <img src="LOGO_jav.png" alt="Kép 1b"> -->
+            </div>
+
+            <div class="text-block">
+                <h1 data-lang data-hu="Projekt" data-en="Project">Projekt</h1>
+                <!-- <p data-lang data-hu="Rövid bevezető szöveg." data-en="Short introductory text.">Rövid bevezető szöveg. -->
+                </p>
+                <p data-lang data-hu="Az űrutazás egyik legfontosabb eleme a biztonságos zsilipelés, amely lehetővé teszi a nyomáskiegyenlítést az állomásra való bejutás illetve a kültérbe történő kijutás között."
+                    data-en="One of the most crucial elements of space travel is safe airlock operation, which enables pressure equalization between entering the station and exiting into the external environment.">
+                    Az űrutazás egyik legfontosabb eleme a biztonságos zsilipelés, amely lehetővé teszi a nyomáskiegyenlítést az állomásra való bejutás illetve a kültérbe történő kijutás között. </p>
+
+                <p data-lang data-hu="A projektünk egy valós űrzsilip működését szemlélteti, hogy a diákok számára ezzel is átláthatóbbá tegyünk egy ilyen fontos találmányt, mely az űrhajósok életét hivatott megmenteni. Zsilipünk működésének alapját egy Arduino mikrokontroller adja, amely automatikusan vezérli az ajtók nyitását, a hőmérséklet szabályozását azaz a nyomáskülönbség szimulációját. A prototípust 3D nyomtatással készítettük a gyors és költséghatékony fejlesztés érdekében. Az élő bemutatón a rendszer érzékeli a környezeti változásokat, és ennek megfelelően aktiválja a zsilipelési folyamatot.  "
+                    data-en="Our project demonstrates the functioning of a real space airlock to make this essential invention more comprehensible for students, as it is designed to save astronauts' lives. The core of our airlock's operation is an Arduino microcontroller, which automatically controls the opening of doors and regulates temperature—simulating pressure differences. The prototype was created using 3D printing for fast and cost-effective development. During the live demonstration, the system detects environmental changes and activates the airlocking process accordingly.">
+                    A projektünk egy valós űrzsilip működését szemlélteti, hogy a diákok számára ezzel is átláthatóbbá tegyünk egy ilyen fontos találmányt, mely az űrhajósok életét hivatott megmenteni. Zsilipünk működésének alapját egy Arduino mikrokontroller adja, amely automatikusan vezérli az ajtók nyitását, a hőmérséklet szabályozását azaz a nyomáskülönbség szimulációját. A prototípust 3D nyomtatással készítettük a gyors és költséghatékony fejlesztés érdekében. Az élő bemutatón a rendszer érzékeli a környezeti változásokat, és ennek megfelelően aktiválja a zsilipelési folyamatot. </p>
+                
+                <p data-lang data-hu="Fejlesztésünk során a modern 3D nyomtatási technológiát és programozást ötvözzük, hogy egy működő prototípust hozzunk létre, amelyet több helyen is bemutathatunk."
+                    data-en="In our development, we integrate modern 3D printing technology with programming to create a working prototype that we can present in multiple locations.">
+                    Fejlesztésünk során a modern 3D nyomtatási technológiát és programozást ötvözzük, hogy egy működő prototípust hozzunk létre, amelyet több helyen is bemutathatunk.</p>
+                
+                <p data-lang data-hu="Innováció, kihívás és szenvedély, ez a SpaceMold projekt lényege!"
+                    data-en="Innovation, challenge, and passion—this is the essence of the SpaceMold project!">
+                    Innováció, kihívás és szenvedély, ez a SpaceMold projekt lényege!</p>
+
+            </div>
+        </div>
+        <div id="urallomas" class="section">
+            <div class="image-block">
+                <img src="csoportkep.png" alt="Kép 1">
+                <img src="zsilip_pro_jo.png" alt="Kép 1b">
+            </div>
+            <div class="text-block">
+                <h1 data-lang data-hu="Projekthét" data-en="Project week">Projekthét</h1>
+                <!-- <p data-lang data-hu="Rövid bevezető szöveg." data-en="Short introductory text.">Rövid bevezető szöveg. -->
+                </p>
+                <p data-lang data-hu="Projektünk kiegészítéseként egy 3D nyomtatott Projekthétt is tervezünk, amely egy központi egységből és hozzá kapcsolódó laborokból áll. Az állomás részét képezi egy energiavisszanyerő rendszer is, amely napelemekkel működik, és a fény irányába forog, hasonlóan egy napraforgóhoz. Ez a modell nemcsak a zsiliprendszer működését szemlélteti, hanem egy teljesebb, önfenntartó űrbeli környezetet is bemutat."
+                    data-en="As a complement to our project, we are also designing a 3D-printed space station consisting of a central unit and connected laboratories. The station includes an energy recovery system that operates with solar panels and rotates toward the light, similar to a sunflower. This model not only demonstrates the operation of the airlock system but also presents a more complete, self-sustaining space environment.">
+                    Projektünk kiegészítéseként egy 3D nyomtatott Projekthétt is tervezünk, amely egy központi egységből és hozzá kapcsolódó laborokból áll. Az állomás részét képezi egy energiavisszanyerő rendszer is, amely napelemekkel működik, és a fény irányába forog, hasonlóan egy napraforgóhoz. Ez a modell nemcsak a zsiliprendszer működését szemlélteti, hanem egy teljesebb, önfenntartó űrbeli környezetet is bemutat.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Minden jog fenntartva.</p>
+    </footer>
+</body>
+
+</html>
